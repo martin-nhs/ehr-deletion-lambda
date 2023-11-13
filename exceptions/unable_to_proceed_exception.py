@@ -1,0 +1,2 @@
+class UnableToProceedException(Exception):
+    pass

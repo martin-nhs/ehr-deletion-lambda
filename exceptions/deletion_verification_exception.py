@@ -1,0 +1,2 @@
+class DeletionVerificationException(Exception):
+    pass
