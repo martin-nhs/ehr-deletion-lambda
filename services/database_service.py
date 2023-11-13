@@ -55,10 +55,10 @@ class DatabaseService:
 
     def _verify_ehr_repository_records_deleted(self, conversation_ids: list[str]) -> None:
         formatted_conversation_ids = self._format_conversation_ids(conversation_ids)
-        sql_query = "SELECT m.conversation_id "\
-                    "FROM messages m "\
-                    "WHERE m.conversation_id "\
-                    f"IN ({formatted_conversation_ids});"
+        sql_query = ("SELECT m.conversation_id "
+                     "FROM messages m "
+                     "WHERE m.conversation_id "
+                     f"IN ({formatted_conversation_ids});")
 
         with pg8000.native.Connection(**self._ehr_repository_database_parameters.connection_dictionary) as connection:
             unsuccessful_ids = connection.run(sql_query)
