@@ -15,8 +15,7 @@ All the below environment variables **MUST** be set unless the lambda will not f
 | Variable Name                       | Description                                                                                                |
 |-------------------------------------|------------------------------------------------------------------------------------------------------------|
 | EHR_REPOSITORY_BUCKET_NAME          | The name of the repository S3 bucket.                                                                      |
-| DELETION_INTERVAL                   | The interval required to pass for a record to be eligible for deletion. The default interval is `8 weeks`. |
-| SLACK_WEBHOOK_SSM_PARAMETER_NAME    | The SSM parameter name for the Slack Webhook URL.                                                          |
+| DELETION_INTERVAL                   | The interval required to pass for a record to be eligible for deletion. The default interval is `8 weeks`. | |
 | EHR_REPO_DB_HOST_SSM_PARAMETER_NAME | The SSM parameter name for the EHR Repository database host value.                                         |
 | EHR_REPO_DB_USER_SSM_PARAMETER_NAME | The SSM parameter name for the EHR Repository database username.                                           |
 | EHR_REPO_DB_PASS_SSM_PARAMETER_NAME | The SSM parameter name for the EHR Repository database password.                                           |
@@ -43,10 +42,3 @@ All the below environment variables **MUST** be set unless the lambda will not f
 * s3:DeleteObject - required to delete S3 objects from the repository bucket.
 * s3:ListBucket - required to list objects within the repository bucket.
 * ssm:GetParameter - required to fetch parameters from SSM.
-
----
-
-♻️ **Future Improvements**
-
-* Remove Verify EHR Repository deletions query and find a way to verify the records.
-* Once the EHR Repository database is set up correctly (with a FK) we can use delete cascade to and boil the deletion query down to 1 operation.
